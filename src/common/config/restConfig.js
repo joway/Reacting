@@ -1,6 +1,5 @@
 import reduxApi from 'redux-api';
-import home from './features/home/rest';
-
+import Rests from '../Rests';
 
 const adapter = (fetch) => {
   return function (url, opts) {
@@ -17,7 +16,5 @@ const adapter = (fetch) => {
     });
   };
 };
-export default reduxApi({
-  ...home,
-}).use("fetch", adapter(fetch));
+export default reduxApi(Rests).use("fetch", adapter(fetch));
 

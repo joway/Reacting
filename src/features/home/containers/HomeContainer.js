@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import rest from '../../../rest'
+import { rest } from '../../../common'
 
 const { actions } = rest;
 

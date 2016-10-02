@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import reduxApi from '../rest'
+import reduxApi from './restConfig'
 
 const rootReducer = combineReducers({
   ...reduxApi.reducers,

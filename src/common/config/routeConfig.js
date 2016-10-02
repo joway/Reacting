@@ -1,16 +1,4 @@
-import App from '../common/App';
-
-import { PageNotFound } from '../components';
-import homeRoute from '../features/home/router';
-
-const routes = [{
-  path: '/',
-  component: App,
-  childRoutes: [
-    homeRoute,
-    { path: '*', name: 'Page not found', component: PageNotFound },
-  ],
-}];
+import Routers from '../Routers'
 
 // Handle isIndex property of route config:
 //  1. remove the first child with isIndex=true from childRoutes
@@ -40,5 +28,5 @@ function handleIndexRoute (route) {
   route.childRoutes.forEach(handleIndexRoute);
 }
 
-routes.forEach(handleIndexRoute);
-export default routes;
+Routers.forEach(handleIndexRoute);
+export default Routers;

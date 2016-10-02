@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import routeConfig from './routeConfig';
+import routeConfig from './config/routeConfig';
 import Nav from '../components/Nav';
 
 export default class App extends Component {
