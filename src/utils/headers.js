@@ -16,24 +16,15 @@ const getCookie = (name) => {
 
 const getCSRFToken = () => getCookie('csrftoken');
 
-const csrf = {
-  getCookie,
-  getCSRFToken
-};
-
 export const safeHeaders = {
-  Accept: "application/json"
+  "Accept": "application/json"
 };
 
 export const unsafeHeaders = {
   "Accept": "application/json",
-  "Content-Type": "application/json",
-  "X-CSRFToken": csrf.getCSRFToken()
 };
 
 export const uploadHeaders = {
   "Accept": "application/json",
-  "X-CSRFToken": csrf.getCSRFToken()
 };
 
-export default csrf;

@@ -8,15 +8,16 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import configStore from './common/config/configStore';
 import routeConfig from './common/config/routeConfig';
 
-const store = configStore();
+const store = configStore(browserHistory, window.__INITIAL_STATE__);
 const history = syncHistoryWithStore(browserHistory, store);
 
 const root = document.createElement('div');
 document.body.appendChild(root);
 
+
 render(
   <Provider store={store}>
-    <Router history={history} routes={routeConfig} />
+    <Router history={history} routes={routeConfig}/>
   </Provider>,
   root
 );

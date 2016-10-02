@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
-import rootReducer from './rootReducer';
+import rootReducer from './../rootReducer';
 
 const middlewares = [thunk];
 let devToolsExtension = f => f;
@@ -17,9 +18,10 @@ if (process.env.NODE_ENV === 'dev') {
   }
 }
 
-export default function configureStore(initialState) {
+export default function configureStore (baseHistory, initialState) {
+  const routingMiddleware = routerMiddleware(baseHistory)
   const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middlewares),
+    applyMiddleware(routingMiddleware, ...middlewares),
     devToolsExtension
   ));
   return store;
